@@ -1,0 +1,16 @@
+# https://stylelint.io/
+extends:
+	# https://github.com/stylelint/stylelint-config-standard
+	- stylelint-config-standard
+# https://stylelint.io/user-guide/rules/
+rules:
+  # https://stylelint.io/user-guide/rules/indentation/
+  indentation: 2
+  # https://stylelint.io/user-guide/rules/rule-empty-line-before/
+  rule-empty-line-before: "always-multi-line"
+  # https://stylelint.io/user-guide/rules/at-rule-no-unknown/
+  at-rule-no-unknown:
+    - true
+    - ignoreAtRules:
+      - extend
+      - mixin
