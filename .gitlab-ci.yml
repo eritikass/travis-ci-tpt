@@ -14,7 +14,10 @@ npm-install:
     image: node:9
     script:
         - npm install
-        
+    artifacts:
+        paths:
+            - node_modules
+       
 lint:
     stage: test
     image: node:9
