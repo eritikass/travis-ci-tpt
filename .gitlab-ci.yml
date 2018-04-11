@@ -18,7 +18,10 @@ npm-install:
     artifacts:
         paths:
             - node_modules
-
+    cache:
+        paths:
+            - node_modules
+            
 lint:
     stage: test
     script:
@@ -44,7 +47,6 @@ build:
     artifacts:
         paths:
             - dist
-
 
 pages:
      stage: deploy
