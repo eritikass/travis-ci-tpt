@@ -9,29 +9,30 @@ stages:
     - build
     - deploy
     
+image: node:9    
+    
 npm-install:
     stage: install
-    image: node:9
     script:
         - npm install
     artifacts:
         paths:
             - node_modules
-       
+
 lint:
     stage: test
-    image: node:9
     script:
         - npm run lint
 
 stylelint:
     stage: test
-    image: node:9
     script:
         - npm run stylelint
         
 unit:
     stage: test
-    image: node:9
     script:
         - npm run unit
+    artifacts:
+        paths:
+            - test\unit\coverage
