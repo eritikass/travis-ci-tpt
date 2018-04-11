@@ -43,4 +43,13 @@ build:
         - npm run build
     artifacts:
         paths:
-            - dist     
+            - dist
+
+
+pages:
+     stage: deploy
+     script:
+        mv dist public
+     artifacts:
+        paths:
+            - public
