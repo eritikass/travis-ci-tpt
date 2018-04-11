@@ -55,3 +55,6 @@ pages:
      artifacts:
         paths:
             - public
+     environment:
+        name: "pages"
+        url: "https://eritikass.gitlab.io/ci-test/"
