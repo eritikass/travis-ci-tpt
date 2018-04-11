@@ -10,11 +10,12 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm-run-all stylelint unit lint",
+	"lint2": "eslint --format node_modules/eslint-friendly-formatter --ext .js,.vue src test/unit test/e2e/specs",
     "lint": "eslint --format node_modules/eslint-friendly-formatter --ext .js,.vue src test/unit test/e2e/specs",
     "stylelint": "stylelint src/**/*.css",
     "cilint": "gitlab-ci-validate",
     "build": "node build/build.js",
-	"gowin": "npm install -g webpack-dev-server@^2.9.1 jest@^22.0.4 npm-run-all eslint@^4.15.0 eslint-plugin-vue@latest babel-eslint stylelint@^9.2.0 stylelint-config-standard gitlab-ci-validate"
+	"gowin": "npm install -g webpack-dev-server@^2.9.1 jest@^22.0.4 npm-run-all eslint@^4.15.0 eslint-plugin-vue@latest eslint-plugin-import babel-eslint stylelint@^9.2.0 eslint-config-airbnb-base eslint-friendly-formatter stylelint-config-standard gitlab-ci-validate"
   },
   "dependencies": {
     "npm-run-all": "^4.1.2",
