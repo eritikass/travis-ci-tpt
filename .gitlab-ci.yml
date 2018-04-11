@@ -12,6 +12,7 @@ stages:
     - test
     - build
     - docker
+    - docker:test
     - deploy
     
 image: node:9    
@@ -72,6 +73,22 @@ docker:
       - docker push "$CONTAINER_IMAGE_LATEST"
     tags:
       - docker
+
+test:docker:
+    stage: docker:test
+    image: alpine
+    dependencies: []
+    variables:
+        # no code checkout
+        GIT_STRATEGY: none
+    services:
+      # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html
+      - name: "$CONTAINER_IMAGE_TEST"
+        alias: web
+    before_script:
+      - apk add --no-cache curl
+    script:
+      - curl "http://web/index.html"
 
 pages:
      stage: deploy
