@@ -1,0 +1,16 @@
+# docs:
+# https://docs.gitlab.com/ee/ci/yaml/
+# linter:
+# https://gitlab.com/ci/lint
+
+stages:
+    - install
+    - test
+    - build
+    - deploy
+    
+npm-install:
+    stage: install
+    image: node:9
+    script:
+        - npm install
