@@ -23,3 +23,15 @@ lint:
     image: node:9
     script:
         - npm run lint
+
+stylelint:
+    stage: test
+    image: node:9
+    script:
+        - npm run stylelint
+        
+unit:
+    stage: test
+    image: node:9
+    script:
+        - npm run unit
