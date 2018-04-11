@@ -36,3 +36,11 @@ unit:
     artifacts:
         paths:
             - test\unit\coverage
+            
+build:
+    stage: build
+    script:
+        - npm run build
+    artifacts:
+        paths:
+            - dist     
