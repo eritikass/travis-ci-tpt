@@ -3,10 +3,16 @@
 # linter:
 # https://gitlab.com/ci/lint
 
+variables:
+  CONTAINER_IMAGE_TEST: "$CI_REGISTRY_IMAGE/test:$CI_PIPELINE_ID-$CI_COMMIT_REF_SLUG"
+  CONTAINER_IMAGE_LATEST: "$CI_REGISTRY_IMAGE"
+
 stages:
     - install
     - test
     - build
+    - docker
+    - docker:test
     - deploy
     
 image: node:9    
@@ -18,7 +24,10 @@ npm-install:
     artifacts:
         paths:
             - node_modules
-
+    cache:
+        paths:
+            - node_modules
+            
 lint:
     stage: test
     script:
@@ -36,3 +45,58 @@ unit:
     artifacts:
         paths:
             - test\unit\coverage
+            
+build:
+    stage: build
+    script:
+        - npm run build
+    artifacts:
+        paths:
+            - dist
+
+# https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
+docker:
+    stage: docker
+    # https://hub.docker.com/_/docker/
+    image: docker:latest
+    services:
+      - docker:dind
+    dependencies:
+      - build
+    before_script:
+      - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    script:
+      - docker build -t "$CONTAINER_IMAGE_TEST" .
+      - docker push "$CONTAINER_IMAGE_TEST"
+      # always keep latest up2date
+      - docker tag "$CONTAINER_IMAGE_TEST" "$CONTAINER_IMAGE_LATEST"
+      - docker push "$CONTAINER_IMAGE_LATEST"
+    tags:
+      - docker
+
+test:docker:
+    stage: docker:test
+    image: alpine
+    dependencies: []
+    variables:
+        # no code checkout
+        GIT_STRATEGY: none
+    services:
+      # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html
+      - name: "$CONTAINER_IMAGE_TEST"
+        alias: web
+    before_script:
+      - apk add --no-cache curl
+    script:
+      - curl "http://web/index.html"
+
+pages:
+     stage: deploy
+     script:
+        mv dist public
+     artifacts:
+        paths:
+            - public
+     environment:
+        name: "pages"
+        url: "https://eritikass.gitlab.io/ci-test/"
