@@ -3,10 +3,15 @@
 # linter:
 # https://gitlab.com/ci/lint
 
+variables:
+  CONTAINER_IMAGE_TEST: "$CI_REGISTRY_IMAGE/test:$CI_PIPELINE_ID-$CI_COMMIT_REF_SLUG"
+  CONTAINER_IMAGE_LATEST: "$CI_REGISTRY_IMAGE"
+
 stages:
     - install
     - test
     - build
+    - docker
     - deploy
     
 image: node:9    
@@ -47,6 +52,26 @@ build:
     artifacts:
         paths:
             - dist
+
+# https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
+docker:
+    stage: docker
+    # https://hub.docker.com/_/docker/
+    image: docker:latest
+    services:
+      - docker:dind
+    dependencies:
+      - build
+    before_script:
+      - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    script:
+      - docker build -t "$CONTAINER_IMAGE_TEST" .
+      - docker push "$CONTAINER_IMAGE_TEST"
+      # always keep latest up2date
+      - docker tag "$CONTAINER_IMAGE_TEST" "$CONTAINER_IMAGE_LATEST"
+      - docker push "$CONTAINER_IMAGE_LATEST"
+    tags:
+      - docker
 
 pages:
      stage: deploy
