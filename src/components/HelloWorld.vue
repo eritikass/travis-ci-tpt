@@ -88,7 +88,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: 'Welcome to siim homepage!',
+      msg: 'Welcome to someone homepage!',
     };
   },
 };
