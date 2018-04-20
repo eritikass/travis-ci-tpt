@@ -80,6 +80,10 @@
         </a>
       </li>
     </ul>
+    <div class="buttons">
+      <button>b1</button>
+      <button>b2</button>
+    </div>
   </div>
 </template>
 
