@@ -12,6 +12,6 @@ describe('HelloWorld.vue', () => {
   it('we have 2 buttons in div.buttons', ()   => {
     const Constructor = Vue.extend(HelloWorld);
     const vm = new Constructor().$mount();
-    expect(vm.$el.querySelectorAll('div.buttons button').length).toBe(2);
+    expect(vm.$el.querySelectorAll('div.buttons button').length).toBe(4);
   });
 });

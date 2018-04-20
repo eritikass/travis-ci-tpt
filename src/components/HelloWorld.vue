@@ -83,6 +83,8 @@
     <div class="buttons">
       <button>b1</button>
       <button>b2</button>
+      <button>b3</button>
+      <button>b4</button>
     </div>
   </div>
 </template>
