@@ -26,7 +26,6 @@ describe('double', () => {
   //  });
   it('double "kala" is not number and throws exception', () => {
     expect(() => {
-      console.log('function gogogog!');
       double('kala');
     }).toThrowError('input need to be number!');
   });
