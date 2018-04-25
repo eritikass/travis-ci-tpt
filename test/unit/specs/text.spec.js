@@ -9,4 +9,7 @@ describe('text', () => {
     const t1 = text('kala');
     expect(t1).toBe('kala');
   });
+  it('if no text given, returns empty string', () => {
+    // WRITE ME!
+  });
 });
