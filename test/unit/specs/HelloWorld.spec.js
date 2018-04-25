@@ -12,7 +12,9 @@ describe('HelloWorld.vue', () => {
   it('we have 4 buttons in div.buttons', () => {
     const Constructor = Vue.extend(HelloWorld);
     const vm = new Constructor().$mount();
-    expect(vm.$el.querySelectorAll('div.buttons button').length).toBe(4);
+    const number = vm.$el.querySelectorAll('div.buttons button').length;
+    expect(number).toBe(4);
+    expect(number).toMatchSnapshot();
   });
 
   it('match buttons html', () => {

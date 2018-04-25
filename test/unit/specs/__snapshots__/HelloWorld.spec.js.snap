@@ -6,3 +6,5 @@ exports[`HelloWorld.vue match buttons html 1`] = `
 <button>b3</button>
 <button>b4</button>
 `;
+
+exports[`HelloWorld.vue we have 4 buttons in div.buttons 1`] = `4`;
