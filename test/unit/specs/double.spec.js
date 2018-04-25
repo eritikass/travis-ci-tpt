@@ -15,7 +15,7 @@ describe('double', () => {
   it('double "5" to be 0', () => {
     expect(double('5')).toEqual(10);
   });
-  it('double "kala" do be not a number', () => {
+  it('double "kala" not to be number', () => {
     expect(double('kala')).not.toBeNumber();
   });
 });
