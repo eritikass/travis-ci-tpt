@@ -1,5 +1,4 @@
 function double(num) {
-  console.log('num', num);
   if (num === undefined) {
     throw new Error('no input given!');
   }
@@ -29,10 +28,10 @@ describe('double', () => {
     expect(() => {
       console.log('function gogogog!');
       double('kala');
-    }).toThrow();
+    }).toThrowError('input need to be number!');
   });
 
   it('double without args throws exception', () => {
-    expect(double).toThrow();
+    expect(double).toThrowError('no input given!');
   });
 });
