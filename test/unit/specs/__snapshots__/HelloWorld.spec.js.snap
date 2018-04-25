@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloWorld.vue match buttons html 1`] = `
+<button>b1</button>
+<button>b2</button>
+<button>b3</button>
+<button>b4</button>
+`;
