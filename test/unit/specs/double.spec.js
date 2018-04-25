@@ -1,4 +1,8 @@
 function double(num) {
+  console.log('num', num);
+  if (num === undefined) {
+    throw new Error('no input given!');
+  }
   if (isNaN(num)) {
     throw new Error('input need to be number!');
   }
@@ -18,7 +22,17 @@ describe('double', () => {
   it('double "5" to be 0', () => {
     expect(double('5')).toEqual(10);
   });
-  it('double "kala" not to be number', () => {
-    expect(double('kala')).not.toBeNumber();
+  // it('double "kala" not to be number', () => {
+  //    expect(double('kala')).not.toBeNumber();
+  //  });
+  it('double "kala" is not number and throws exception', () => {
+    expect(() => {
+      console.log('function gogogog!');
+      double('kala');
+    }).toThrow();
+  });
+
+  it('double without args throws exception', () => {
+    expect(double).toThrow();
   });
 });
