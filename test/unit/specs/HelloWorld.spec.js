@@ -23,6 +23,5 @@ describe('HelloWorld.vue', () => {
     const html = vm.$el.querySelector('div.buttons').innerHTML;
     console.log('html', html);
     expect(html).toMatchSnapshot();
-    // expect(html).toBe('<button>b1</button> <button>b2</button> <button>b3</button> <button>b4</button>');
   });
 });
