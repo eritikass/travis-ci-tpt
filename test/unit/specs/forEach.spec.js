@@ -10,7 +10,7 @@ function double(num) {
 
 function forEach(items, callback) {
   for (let index = 0; index < items.length; index += 1) {
-    callback(items[index], double(items[index]));
+    callback(items[index], double(items[index]), index);
   }
 }
 
