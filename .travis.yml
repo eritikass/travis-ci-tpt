@@ -14,19 +14,18 @@ cache:
     - "node_modules"
 
 before_install:
-  - npm i -g npm@latest
   - sudo apt-get update && sudo apt-get install curl
 
 install:
-  - npm ci
+  - yarn
 
 before_script:
-  - npm run stylelint
-  - npm run lint
-  - npm run unit
+  - yarn run stylelint
+  - yarn run lint
+  - yarn run unit
 
 script:
-  - npm run build
+  - yarn run build
   - docker build -t eritikass/ci-test .
 
 after_script:
