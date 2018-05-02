@@ -6,7 +6,8 @@ describe('sum', () => {
   it('3+5 = 8', () => {
     expect(sum(3, 5)).toEqual(8);
   });
-  it( '1+2 = 3', () => {
+  it('1+2 = 3', () => {
+    expect(sum(1, 2)).toEqual(3);
     // TODO: WRITE ME!
   });
   it('3 = 8', () => {
