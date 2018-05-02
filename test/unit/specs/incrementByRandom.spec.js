@@ -26,3 +26,8 @@ describe('incrementByRandom', () => {
   });
 });
 
+  it('7 + random = 107', () => {
+    const number = incrementByRandom(7);
+    expect(number).toBe(107);
+  });
+});
