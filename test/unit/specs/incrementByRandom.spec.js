@@ -24,4 +24,3 @@ describe('incrementByRandom', () => {
     expect(number).toBe(107);
   });
 });
-
