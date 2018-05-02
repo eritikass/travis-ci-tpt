@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPost get post 5 1`] = `
+Object {
+  "body": "repudiandae veniam quaerat sunt sed
+alias aut fugiat sit autem sed est
+voluptatem omnis possimus esse voluptatibus quis
+est aut tenetur dolor neque",
+  "id": 5,
+  "title": "nesciunt quas odio",
+  "userId": 1,
+}
+`;
+
+exports[`getPost get post 7 1`] = `
+Object {
+  "body": "dolore placeat quibusdam ea quo vitae
+magni quis enim qui quis quo nemo aut saepe
+quidem repellat excepturi ut quia
+sunt ut sequi eos ea sed quas",
+  "id": 7,
+  "title": "magnam facilis autem",
+  "userId": 1,
+}
+`;
