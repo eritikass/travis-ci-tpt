@@ -20,7 +20,8 @@ describe('incrementByRandom', () => {
   });
 
   it('7 + random = 107', (  ) => {
-    // TODO: write me!
+    const number = incrementByRandom(7);
+    expect(number).toBe(107);
   });
 });
 
