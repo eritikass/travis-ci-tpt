@@ -33,3 +33,6 @@ after_script:
   - docker run -d --name ci-test -p "8081:80" eritikass/ci-test
   - docker ps
   - curl "http://localhost:8081/index.html"
+
+notifications:
+  email: false
