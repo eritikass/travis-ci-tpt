@@ -18,5 +18,9 @@ describe('incrementByRandom', () => {
     const number = incrementByRandom(13);
     expect(number).toBe(113);
   });
+
+  it('7 + random = 107', (  ) => {
+    // TODO: write me!
+  });
 });
 
