@@ -1,5 +1,7 @@
 version: '2.1'
 
+# docker-compose run php bash
+
 services:
 
   php:
